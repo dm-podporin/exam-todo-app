@@ -17,7 +17,7 @@ pipeline {
         }
         stage('Deploy to EC2') {
             steps {
-                sshagent([${SSH_KEY}]) {
+                sshagent([SSH_KEY]) {
                     sh "ssh ${EC2-USER}@${EC2_HOST} 'docker-compose down && docker-compose pull && docker-compose up -d'"
                 }
             }
