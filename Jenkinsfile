@@ -18,8 +18,9 @@ pipeline {
             steps {
                    sshagent(['dmpodporin-aws']) {
                     sh """
-                        ssh -o StrictHostKeyChecking=no ${user}@${public_dns} 'whoami'
-                    """
+                        ssh -o StrictHostKeyChecking=no ${EC2_USER}@${EC2_HOST} 'whoami'
+                """
+            }
             }
         }    
     }
