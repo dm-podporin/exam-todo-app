@@ -12,7 +12,6 @@ COPY package.json ./
 
 # Install app dependencies
 RUN npm install
-RUN npm install -g mocha
 
 # Copy app source code to the container
 COPY . .
@@ -21,4 +20,4 @@ COPY . .
 EXPOSE 8000
 
 # Run the application when the container starts
-CMD ["node", "app.js"]
+CMD ["npm", "start", "test"]
