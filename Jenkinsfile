@@ -11,7 +11,7 @@ pipeline {
         stage('Build and Test') {
             steps {
                 script {
-                    docker.build(DOCKER_IMAGE, '.')
+                    docker.build(node-todo-app, '.')
                     docker.withRegistry('https://registry.hub.docker.com', 'docker-creds') {
                         dockerImage.push()
                     }
