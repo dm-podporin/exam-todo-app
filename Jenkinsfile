@@ -18,7 +18,7 @@ pipeline {
             steps {
                    sshagent(['dmpodporin-aws']) {
                     sh """
-                        ssh -o StrictHostKeyChecking=no ${EC2_USER}@${EC2_HOST} 'whoami'
+                        ssh -o StrictHostKeyChecking=no ${EC2_USER}@${EC2_HOST} 'docker-compose down && docker-compose pull && docker-compose up -d'
                 """
             }
             }
