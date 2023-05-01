@@ -20,4 +20,4 @@ COPY . .
 EXPOSE 8000
 
 # Run the application when the container starts
-CMD ["npm", "start", "test"]
+CMD ["npm", "start"]
