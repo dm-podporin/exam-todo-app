@@ -16,9 +16,10 @@ pipeline {
         }
         stage('Deploy to EC2') {
             steps {
-                sshagent(['dmpodporin-aws']) {
-                    sh "ssh ${EC2_USER}@${EC2_HOST} 'docker-compose down && docker-compose pull && docker-compose up -d'"
-                }
+                   sshagent(['dmpodporin-aws']) {
+                    sh """
+                        ssh -o StrictHostKeyChecking=no ${user}@${public_dns} 'whoami'
+                    """
             }
         }    
     }
