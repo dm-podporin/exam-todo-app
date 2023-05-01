@@ -3,7 +3,6 @@ pipeline {
     environment {
         DOCKER_IMAGE = 'node-todo-app'
         EC2_HOST = 'ec2-16-16-143-151.eu-north-1.compute.amazonaws.com'
-        SSH_KEY = credentials('dmpodporin-aws')
         EC2_USER = 'ubuntu'
     }
     stages {
@@ -17,7 +16,7 @@ pipeline {
         }
         stage('Deploy to EC2') {
             steps {
-                sshagent(['${SSH_KEY}']) {
+                sshagent(['dmpodporin-aws']) {
                     sh "ssh ${EC2_USER}@${EC2_HOST} 'docker-compose down && docker-compose pull && docker-compose up -d'"
                 }
             }
