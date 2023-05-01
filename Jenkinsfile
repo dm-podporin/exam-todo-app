@@ -4,7 +4,7 @@ pipeline {
         DOCKER_IMAGE = 'node-todo-app'
         EC2_HOST = 'ec2-16-16-143-151.eu-north-1.compute.amazonaws.com'
         SSH_KEY = credentials('dmpodporin-aws')
-        EC2-USER = 'ubuntu'
+        EC2_USER = 'ubuntu'
     }
     stages {
         stage('Build and Test') {
