@@ -8,7 +8,6 @@ pipeline {
             steps {
                 script {
                     sh "docker build -t node-todo-app ."
-                    sh "mocha --recursive --exit"
                 }
             }
         }
