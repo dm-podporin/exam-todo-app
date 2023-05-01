@@ -7,7 +7,7 @@ pipeline {
         stage('Build and Test') {
             steps {
                 script {
-                    docker.build(DOCKER_IMAGE, '.')
+                    sh "docker build -t node-todo-app ."
                 }
             }
         }
