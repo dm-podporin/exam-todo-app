@@ -8,11 +8,6 @@ pipeline {
         HEALTH_CHECK_URL = 'http://ec2-instance:3000/health'
     }
     stages {
-        stage('Clone') {
-            steps {
-                git 'https://github.com/username/node-todo-app.git'
-            }
-        }
         stage('Build and Test') {
             steps {
                 script {
